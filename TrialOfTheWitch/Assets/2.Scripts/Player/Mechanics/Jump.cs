@@ -8,6 +8,9 @@ public class Jump
     public float jumpForce;
     public float groundCheckDistance;
 
+    float coyotteTime;
+    public float coyotteTimeRef;
+
     bool isJumping;
     bool isGround;
 
@@ -15,12 +18,31 @@ public class Jump
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if(!isJumping)
+            if (!isJumping || coyotteTime > 0f && !isGround)
+            {
                 _rb.velocity = new Vector2(_rb.velocity.x, Time.fixedDeltaTime * jumpForce);
+            }
         }
+        CoyotteTime();
+        FlexibleJump(_rb);
+
         _anim.SetInteger("Jump", (int)_rb.velocity.y);
         _anim.SetBool("isJumping", isJumping);
+
         GroundCheck(_rb);
+    }
+
+    void FlexibleJump(Rigidbody2D _rb)
+    {
+        if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0)
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.25f);
+    }
+
+    void CoyotteTime()
+    {
+        coyotteTime -= 0.1f;
+        if (isGround)
+            coyotteTime = coyotteTimeRef;
     }
 
 

@@ -322,10 +322,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1565626676}
   - component: {fileID: 1565626675}
-  - component: {fileID: 1565626677}
   - component: {fileID: 1565626678}
   - component: {fileID: 1565626679}
   - component: {fileID: 1565626680}
+  - component: {fileID: 1565626677}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -410,8 +410,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013825208, y: 1.0308142}
-  m_Size: {x: 0.63247424, y: 1.5823555}
+  m_Offset: {x: -0.2744981, y: 1.0815713}
+  m_Size: {x: 0.6492393, y: 1.7850909}
   m_Direction: 0
 --- !u!50 &1565626678
 Rigidbody2D:
@@ -452,6 +452,7 @@ MonoBehaviour:
   jump:
     jumpForce: 750
     groundCheckDistance: 0.93
+    coyotteTimeRef: 0.4
 --- !u!95 &1565626680
 Animator:
   serializedVersion: 3
