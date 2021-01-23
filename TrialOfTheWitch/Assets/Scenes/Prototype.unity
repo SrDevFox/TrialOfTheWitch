@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -326,6 +326,10 @@ GameObject:
   - component: {fileID: 1565626679}
   - component: {fileID: 1565626680}
   - component: {fileID: 1565626677}
+  - component: {fileID: 1565626684}
+  - component: {fileID: 1565626683}
+  - component: {fileID: 1565626682}
+  - component: {fileID: 1565626681}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -446,18 +450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069c825818da03d42b927e90e35251ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement:
-    speed: 200
-    slideSpeed: 250
-    timeSlideRef: 2
-    timeSlide: 2
-    isSlide: 0
-    isLookingLeft: 0
-  jump:
-    jumpForce: 750
-    groundCheckDistance: 0.93
-    coyotteTimeRef: 0.4
-  _collider: {fileID: 0}
+  movement: {fileID: 1565626684}
+  jump: {fileID: 1565626682}
+  slide: {fileID: 1565626681}
+  dash: {fileID: 1565626683}
 --- !u!95 &1565626680
 Animator:
   serializedVersion: 3
@@ -477,3 +473,62 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1565626681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565626674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9fa70e091372a48a09391d5b994a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideSpeed: 250
+  timeSlideRef: 2
+  timeSlide: 2
+  isSlide: 0
+--- !u!114 &1565626682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565626674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2eb7ff173572554b83fb9930a1d5042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 750
+  groundCheckDistance: 0.9
+  coyotteTimeRef: 0.4
+--- !u!114 &1565626683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565626674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7745ae126e2fa6145bceec43e06dea43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 500
+  isDash: 0
+--- !u!114 &1565626684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565626674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d305f6088855cff48a849d23d81e9fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 280
+  isLookingLeft: 0

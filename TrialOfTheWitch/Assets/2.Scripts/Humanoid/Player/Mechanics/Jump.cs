@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Jump
+public class Jump : Humanoid
 {
     public float jumpForce;
     public float groundCheckDistance;
@@ -14,7 +14,7 @@ public class Jump
     bool isJumping;
     bool isGround;
 
-    public void OnJump(Rigidbody2D _rb, Animator _anim)
+    public void OnJump()
     {
         if (Input.GetButtonDown("Jump"))
         {
@@ -24,15 +24,15 @@ public class Jump
             }
         }
         CoyotteTime();
-        FlexibleJump(_rb);
+        FlexibleJump();
 
         _anim.SetInteger("Jump", (int)_rb.velocity.y);
         _anim.SetBool("isJumping", isJumping);
 
-        GroundCheck(_rb);
+        GroundCheck();
     }
 
-    void FlexibleJump(Rigidbody2D _rb)
+    void FlexibleJump()
     {
         if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0)
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.25f);
@@ -46,7 +46,7 @@ public class Jump
     }
 
 
-    void GroundCheck(Rigidbody2D _rb)
+    void GroundCheck()
     {
         RaycastHit2D raycast = Physics2D.Raycast(_rb.worldCenterOfMass, Vector2.down, groundCheckDistance, 1 << 8);
         Debug.DrawRay(_rb.worldCenterOfMass, Vector2.down * groundCheckDistance, Color.cyan);
