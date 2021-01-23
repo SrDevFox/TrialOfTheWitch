@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Jump jump = new Jump();
 
     Rigidbody2D _rb;
-    Animator _anim;
+    [SerializeField]
+    Collider2D _collider;
+    Animator _anim; 
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _anim = GetComponent<Animator>();
     }
 
@@ -20,5 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         movement.OnMove(_rb, _anim, this);
         jump.OnJump(_rb, _anim);
+
+        movement.Slide(_rb, _anim, _collider, this);
     }
 }
