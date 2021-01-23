@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 1565626683}
   - component: {fileID: 1565626682}
   - component: {fileID: 1565626681}
+  - component: {fileID: 1565626685}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -454,6 +455,7 @@ MonoBehaviour:
   jump: {fileID: 1565626682}
   slide: {fileID: 1565626681}
   dash: {fileID: 1565626683}
+  attack: {fileID: 1565626685}
 --- !u!95 &1565626680
 Animator:
   serializedVersion: 3
@@ -530,5 +532,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d305f6088855cff48a849d23d81e9fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 280
+  speed: 200
   isLookingLeft: 0
+--- !u!114 &1565626685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565626674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578a711a00685854bb69263550023407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
