@@ -19,4 +19,9 @@ public class Humanoid : MonoBehaviour
     {
 
     }
+
+    public virtual void DisableAnimation(string param)
+    {
+        _anim.SetBool(param, false);
+    }
 }

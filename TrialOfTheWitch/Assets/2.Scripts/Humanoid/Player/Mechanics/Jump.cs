@@ -8,11 +8,11 @@ public class Jump : Humanoid
     public float jumpForce;
     public float groundCheckDistance;
 
-    float coyotteTime;
     public float coyotteTimeRef;
+    float coyotteTime;
 
+    public bool isGround;
     bool isJumping;
-    bool isGround;
 
     public void OnJump()
     {

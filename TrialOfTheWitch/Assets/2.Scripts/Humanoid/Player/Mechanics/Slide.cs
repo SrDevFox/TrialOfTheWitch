@@ -6,54 +6,37 @@ using UnityEngine;
 public class Slide : Humanoid
 {
     public float slideSpeed;
-    public float timeSlideRef;
     public float timeSlide;
+    public bool isSliding;
     public bool isSlide;
+    [SerializeField]bool canSlide = true;
 
-    public bool isSliding()
+    public void OnSlide()
     {
-        if (Input.GetKey(KeyCode.DownArrow) && Input.GetAxisRaw("Horizontal") != 0 && timeSlide > 0f && _rb.velocity.y == 0)
-            return true;
-        else
-            return false;
-    }
-
-    public void OnSlide( )
-    {
-        if(isSliding() == true)
+        if (Input.GetButton("Horizontal") && Input.GetKeyDown(KeyCode.S) && canSlide)
         {
-            Sliding();
+            isSliding = true;
+            canSlide = false;
         }
-        
-        else if (isSliding() == false)
-            DisableSliding();
 
+        if (isSliding)
+            Sliding();
     }
 
     void Sliding()
     {
-        _rb.gravityScale = 0;
-        _collider.isTrigger = true;
+        _anim.SetBool("isSliding", true);
+        _rb.velocity = new Vector2(transform.localScale.x * Time.fixedDeltaTime * slideSpeed, _rb.velocity.y * 0);
 
-        _rb.velocity = new Vector2(transform.localScale.x * Time.deltaTime * slideSpeed, _rb.velocity.y * 0);
-        _anim.SetBool("isSliding", true); 
-
-        timeSlide -= 0.1f;
+        StartCoroutine(OffSlide());
     }
 
-    void DisableSliding()
+    IEnumerator OffSlide()
     {
-        isSlide = false;
+        yield return new WaitForSeconds(timeSlide);
+        isSliding = false;
 
+        canSlide = true;
         _anim.SetBool("isSliding", false);
-        _rb.gravityScale = 2;
-        _collider.isTrigger = false;
-        StartCoroutine(RestoreTime(timeSlide, timeSlideRef, 1f));
-    }
-
-    public IEnumerator RestoreTime(float time, float timeRef, float timeOfReturn)
-    {
-            yield return new WaitForSeconds(1f);
-            timeSlide = timeSlideRef;
     }
 }

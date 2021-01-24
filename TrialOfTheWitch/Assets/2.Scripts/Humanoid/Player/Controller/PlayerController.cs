@@ -12,12 +12,14 @@ public class PlayerController : Humanoid
 
     void Update()
     {
-        if(slide.isSliding() == false && !attack.isAttacking)
+        if(!slide.isSliding && !attack.isAttacking && !attack.isDashingAttack)
             movement.OnMove();
         if(!dash.isDash)
             jump.OnJump();
-        dash.OnDash();
-        slide.OnSlide();
+        if(!attack.isDashingAttack && !attack.isAttacking)
+            dash.OnDash();
+        if(jump.isGround)
+            slide.OnSlide();
         attack.OnAttack();
     }
 }

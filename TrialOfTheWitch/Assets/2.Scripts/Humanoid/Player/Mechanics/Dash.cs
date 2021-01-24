@@ -9,7 +9,7 @@ public class Dash : Humanoid
 
     public void OnDash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _rb.velocity.x != 0 && !isDash)
             isDash = true;
         
         if (isDash)

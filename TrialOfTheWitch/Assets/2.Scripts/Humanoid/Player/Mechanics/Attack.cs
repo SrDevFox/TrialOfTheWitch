@@ -7,14 +7,19 @@ public class Attack : Humanoid
     public bool isAttacking;
     bool canAttack = true;
 
+    public float dashAttackSpeed;
+    public bool isDashingAttack;
+    bool canDashingAttack = true;
+
     public void OnAttack()
     {
         StartCoroutine(Attacking());
+        StartCoroutine(dashingAttack());
     }
     
     IEnumerator Attacking()
     {
-        if (Input.GetMouseButtonDown(0) && canAttack && _rb.velocity.y == 0)
+        if (Input.GetMouseButtonDown(0) && canAttack  && !isDashingAttack && _rb.velocity.y == 0)
         {
             _anim.SetBool("isAttacking", true);
             isAttacking = true;
@@ -25,10 +30,16 @@ public class Attack : Humanoid
         }
     }
 
-    void DisableAttack(string paramName)
+    IEnumerator dashingAttack()
     {
-        isAttacking = false;
-        _anim.SetBool(paramName, false);
+        if (Input.GetMouseButton(1) && canDashingAttack)
+        {
+            _rb.AddForce(new Vector2(transform.localScale.x * Time.fixedDeltaTime * dashAttackSpeed, _rb.velocity.y), ForceMode2D.Impulse);
+            _anim.SetBool("isDashingAttack", true);
+            isDashingAttack = true;
+            canDashingAttack = false;
+            yield return new WaitForSeconds(1f);
+            canDashingAttack = true;
+        }
     }
-
-}
+}   

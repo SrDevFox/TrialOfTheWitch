@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dash
+  m_Name: DashAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.75
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -41,26 +41,32 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: isDash
+    attribute: isDashingAttack
     path: 
     classID: 114
-    script: {fileID: 11500000, guid: 7745ae126e2fa6145bceec43e06dea43, type: 3}
+    script: {fileID: 11500000, guid: 578a711a00685854bb69263550023407, type: 3}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 06ad00b035bb461439547edb70e250ef, type: 3}
+      value: {fileID: 21300000, guid: ee14e18eb7d4e78418dffadaa045e22c, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: a5badd741c9483c49aa28aff106cb31f, type: 3}
+      value: {fileID: 21300000, guid: 3ae2951651fed444882cebe79f4f938d, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: f6bfac8aa4b855b4f8b56b073b912583, type: 3}
+      value: {fileID: 21300000, guid: a2bd105601eaccc41babbf60b1625dd0, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 0d8d39a0c9f656743b3c74fac0f79238, type: 3}
+      value: {fileID: 21300000, guid: 40d42f71f25eb844d8fb9b3d540d08f3, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 76939d1ebc93ecf4eb93203f2562f899, type: 3}
+      value: {fileID: 21300000, guid: b4641e8637993b14ba38631c74819e51, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 0bb39182686c8c245877baf15a15b6c6, type: 3}
+      value: {fileID: 21300000, guid: f7756b0587753a444bdd8f77b1be6f1f, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: 9466a8d445e3ef6458ee4bde5c7da96f, type: 3}
+      value: {fileID: 21300000, guid: d351872746950f8418a76449f737b4b0, type: 3}
+    - time: 0.5833333
+      value: {fileID: 21300000, guid: 5472f6796ed06104684d32e2cfbf30ea, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300000, guid: 6391d691568ae1c449cd69c190707f5e, type: 3}
+    - time: 0.75
+      value: {fileID: 21300000, guid: 4a320b501236c7949a70348eb4808565, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -74,8 +80,8 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 978569228
-      script: {fileID: 11500000, guid: 7745ae126e2fa6145bceec43e06dea43, type: 3}
+      attribute: 2495353450
+      script: {fileID: 11500000, guid: 578a711a00685854bb69263550023407, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -87,24 +93,27 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 06ad00b035bb461439547edb70e250ef, type: 3}
-    - {fileID: 21300000, guid: a5badd741c9483c49aa28aff106cb31f, type: 3}
-    - {fileID: 21300000, guid: f6bfac8aa4b855b4f8b56b073b912583, type: 3}
-    - {fileID: 21300000, guid: 0d8d39a0c9f656743b3c74fac0f79238, type: 3}
-    - {fileID: 21300000, guid: 76939d1ebc93ecf4eb93203f2562f899, type: 3}
-    - {fileID: 21300000, guid: 0bb39182686c8c245877baf15a15b6c6, type: 3}
-    - {fileID: 21300000, guid: 9466a8d445e3ef6458ee4bde5c7da96f, type: 3}
+    - {fileID: 21300000, guid: ee14e18eb7d4e78418dffadaa045e22c, type: 3}
+    - {fileID: 21300000, guid: 3ae2951651fed444882cebe79f4f938d, type: 3}
+    - {fileID: 21300000, guid: a2bd105601eaccc41babbf60b1625dd0, type: 3}
+    - {fileID: 21300000, guid: 40d42f71f25eb844d8fb9b3d540d08f3, type: 3}
+    - {fileID: 21300000, guid: b4641e8637993b14ba38631c74819e51, type: 3}
+    - {fileID: 21300000, guid: f7756b0587753a444bdd8f77b1be6f1f, type: 3}
+    - {fileID: 21300000, guid: d351872746950f8418a76449f737b4b0, type: 3}
+    - {fileID: 21300000, guid: 5472f6796ed06104684d32e2cfbf30ea, type: 3}
+    - {fileID: 21300000, guid: 6391d691568ae1c449cd69c190707f5e, type: 3}
+    - {fileID: 21300000, guid: 4a320b501236c7949a70348eb4808565, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.8333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -128,7 +137,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 0.75
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -139,17 +148,17 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: isDash
+    attribute: isDashingAttack
     path: 
     classID: 114
-    script: {fileID: 11500000, guid: 7745ae126e2fa6145bceec43e06dea43, type: 3}
+    script: {fileID: 11500000, guid: 578a711a00685854bb69263550023407, type: 3}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.75
     functionName: DisableAnimation
-    data: isDashing
+    data: isDashingAttack
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
