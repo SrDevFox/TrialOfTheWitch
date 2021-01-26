@@ -9,12 +9,11 @@ public class PlayerController : Humanoid
     [SerializeField] Slide slide = new Slide();
     [SerializeField] Dash dash = new Dash();
     [SerializeField] Attack attack = new Attack();
-
     void Update()
     {
         if(!slide.isSliding && !attack.isAttacking && !attack.isDashingAttack)
             movement.OnMove();
-        if(!dash.isDash)
+        if(!dash.isDash && !attack.isAttacking && !attack.isDashingAttack)
             jump.OnJump();
         if(!attack.isDashingAttack && !attack.isAttacking)
             dash.OnDash();

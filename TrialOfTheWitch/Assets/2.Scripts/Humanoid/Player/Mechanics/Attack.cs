@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CameraMechanic;
 using UnityEngine;
 
 public class Attack : Humanoid
@@ -25,6 +26,7 @@ public class Attack : Humanoid
             isAttacking = true;
             canAttack = false;
             _rb.velocity = new Vector2(_rb.velocity.x * 0, _rb.velocity.y);
+            CameraMechanics.CameraShake();
             yield return new WaitForSeconds(1f);
             canAttack = true;
         }
@@ -38,6 +40,7 @@ public class Attack : Humanoid
             _anim.SetBool("isDashingAttack", true);
             isDashingAttack = true;
             canDashingAttack = false;
+            CameraMechanics.CameraShake();
             yield return new WaitForSeconds(1f);
             canDashingAttack = true;
         }
